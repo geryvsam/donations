@@ -14,24 +14,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 <?php if(Yii::$app->user->isGuest): ?>
-            <br><br>
-            Please <?= Html::a('login',['/site/login'])?> to make 
-            a comment.
-        <?php else: ?>
+    <span class="pull-left">Please <?= Html::a('login',['/site/login'])?> to update donations.</span>
+<?php else: ?>
 
-            <p>
+<p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Are you sure you want to delete this donation?',
                 'method' => 'post',
             ],
         ]) ?>
     </p>
-            <?php ActiveForm::end(); ?>
-
-        <?php endif; ?>
+<?php endif; ?>
     
 
     <?= DetailView::widget([
